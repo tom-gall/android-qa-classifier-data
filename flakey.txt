@@ -5,7 +5,7 @@
 # : STATE TESTNAME (KERNEL_VERSIONS) (HARDWARE) (ANDROID_VERSIONS)
 #
 # STATE
-# I | F | B
+# I | F | B | E
 #
 # TESTNAME
 #
@@ -13,7 +13,7 @@
 # : ( ALL | 5.4 | 4.19 | 4.14 | 4.9 | 4.4 )
 #
 # HARDWARE
-# : ( ALL | HiKey | HiKey960 | Dragonboard845 )
+# : ( ALL | HiKey | HiKey960 | db845 )
 #
 # ANDROID_VERSIONS
 # : ( ANDROID8 | ANDROID9 | ANDROID10 | ANDROID11 | AOSP )
