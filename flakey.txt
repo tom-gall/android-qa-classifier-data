@@ -1,20 +1,39 @@
-# fully qualified  test name (c/n/p from report)  followed by option kernel versions 
+# fully qualified  test name (c/n/p from report)  followed by option kernel versions followed by hardware platform
+# EBNF (roughly)
+#
+# Line
+# : STATE TESTNAME (KERNEL_VERSIONS) (HARDWARE) (ANDROID_VERSIONS)
+#
+# STATE
+# I | F | B
+#
+# TESTNAME
+#
+# KERNEL_VERSIONS
+# : ( ALL | 5.4 | 4.19 | 4.14 | 4.9 | 4.4 )
+#
+# HARDWARE
+# : ( ALL | HiKey | HiKey960 | Dragonboard845 )
+#
+# ANDROID_VERSIONS
+# : ( ANDROID8 | ANDROID9 | ANDROID10 | ANDROID11 | AOSP )
+
 # Expected Fails
 # db845c
-CtsWebkitTestCases android.webkit.cts.WebViewTest#testPrinting#arm64-v8a
-CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect
-CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_nonBlocking
-CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_timeout
-CtsLibcoreTestCases libcore.java.net.SocketTest#testCloseDuringConnect
-CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches
+E CtsWebkitTestCases android.webkit.cts.WebViewTest#testPrinting#arm64-v8a ALL db845 ALL
+E CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect ALL db845 ALL
+E CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_nonBlocking ALL db845 ALL
+E CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_timeout ALL db845 ALL
+E CtsLibcoreTestCases libcore.java.net.SocketTest#testCloseDuringConnect ALL db845 ALL
+E CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL db845 ALL
 
 #Hikey960
-VtsKernelDynamicPartitionsTest#testDynamicPartitionsSysProp#arm64-v8a
+E VtsKernelDynamicPartitionsTest#testDynamicPartitionsSysProp#arm64-v8a ALL HiKey960 ALL
 
 #Hikey
-CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches
+E CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL HiKey ALL
 
 ## Flakey Cases
 # Hikey960
-VtsKernelLinuxKselftest#timers_nsleep-lat_32bit
-VtsKernelLinuxKselftest.timers_set-timer-lat_64bit
+F VtsKernelLinuxKselftest#timers_nsleep-lat_32bit ALL HiKey960 ALL
+F VtsKernelLinuxKselftest.timers_set-timer-lat_64bit ALL HiKey960 ALL
