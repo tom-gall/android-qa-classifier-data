@@ -1,1 +1,20 @@
 # fully qualified  test name (c/n/p from report)  followed by option kernel versions 
+# Expected Fails
+# db845c
+CtsWebkitTestCases android.webkit.cts.WebViewTest#testPrinting#arm64-v8a
+CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect
+CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_nonBlocking
+CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_timeout
+CtsLibcoreTestCases libcore.java.net.SocketTest#testCloseDuringConnect
+CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches
+
+#Hikey960
+VtsKernelDynamicPartitionsTest#testDynamicPartitionsSysProp#arm64-v8a
+
+#Hikey
+CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches
+
+## Flakey Cases
+# Hikey960
+VtsKernelLinuxKselftest#timers_nsleep-lat_32bit
+VtsKernelLinuxKselftest.timers_set-timer-lat_64bit
