@@ -16,24 +16,41 @@
 # : ( ALL | HiKey | HiKey960 | db845 )
 #
 # ANDROID_VERSIONS
-# : ( ANDROID8 | ANDROID9 | ANDROID10 | ANDROID11 | AOSP )
+# : ( Android8 | Android9 | Android10 | Android11 | AOSP )
 
 # Expected Fails
 # db845c
-E CtsWebkitTestCases android.webkit.cts.WebViewTest#testPrinting#arm64-v8a ALL db845 ALL
-E CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect ALL db845 ALL
-E CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_nonBlocking ALL db845 ALL
-E CtsLibcoreTestCases libcore.java.net.ConcurrentCloseTest#test_connect_timeout ALL db845 ALL
-E CtsLibcoreTestCases libcore.java.net.SocketTest#testCloseDuringConnect ALL db845 ALL
-E CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL db845 ALL
+E android.webkit.cts.WebViewTest#testPrinting#arm64-v8a ALL db845 ALL
+E libcore.java.net.ConcurrentCloseTest#test_connect ALL db845 ALL
+E libcore.java.net.ConcurrentCloseTest#test_connect_nonBlocking ALL db845 ALL
+E libcore.java.net.ConcurrentCloseTest#test_connect_timeout ALL db845 ALL
+E libcore.java.net.SocketTest#testCloseDuringConnect ALL db845 ALL
+E com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL db845 ALL
 
 #Hikey960
-E VtsKernelDynamicPartitionsTest#testDynamicPartitionsSysProp#arm64-v8a ALL HiKey960 ALL
+E com.android.tests.dynamic_partitions.KernelDynamicPartitionsTest#testDynamicPartitionsSysProp#arm64-v8a ALL HiKey960 ALL
 
 #Hikey
-E CtsUsbTests com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL HiKey ALL
+E com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL HiKey ALL
+F android.webkit.cts.WebChromeClientTest#testOnJsBeforeUnloadIsCalled#arm64-v8a ALL HiKey ALL
 
-## Flakey Cases
+## Flakey Cases 
 # Hikey960
 F VtsKernelLinuxKselftest#timers_nsleep-lat_32bit ALL HiKey960 ALL
 F VtsKernelLinuxKselftest.timers_set-timer-lat_64bit ALL HiKey960 ALL
+
+## Flakey 4.4 & HiKey
+F android.bluetooth.cts.BasicAdapterTest#test_enableDisable#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_enableDisable#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getAddress#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getAddress#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getBondedDevices#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getBondedDevices#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getName#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getName#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_listenUsingRfcommWithServiceRecord#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_listenUsingRfcommWithServiceRecord#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testBasicBleScan#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testBasicBleScan#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testScanFilter#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testScanFilter#armeabi-v7a 4.4 HiKey ALL
