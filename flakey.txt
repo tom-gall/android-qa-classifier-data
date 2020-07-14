@@ -36,7 +36,7 @@ E com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL HiKey ALL
 ## Flakey Cases 
 # Hikey960
 F VtsKernelLinuxKselftest#timers_nsleep-lat_32bit ALL HiKey960 ALL
-F VtsKernelLinuxKselftest.timers_set-timer-lat_64bit ALL HiKey960 ALL
+F VtsKernelLinuxKselftest#timers_set-timer-lat_64bit ALL HiKey960 ALL
 
 ## Flakey Cases ALL ALL ALL
 F android.systemui.cts.LightBarTests#testLightNavigationBar#arm64-v8a ALL ALL ALL
@@ -46,7 +46,7 @@ F android.systemui.cts.LightBarTests#testNavigationBarDivider#armeabi-v7a ALL AL
 F android.systemui.cts.LightBarThemeTest#testNavigationBarDividerColor#arm64-v8a ALL ALL ALL
 F android.systemui.cts.LightBarThemeTest#testNavigationBarDividerColor#armeabi-v7a ALL ALL ALL
 F android.webkit.cts.WebChromeClientTest#testOnJsBeforeUnloadIsCalled#arm64-v8a ALL ALL ALL
-
+F android.webkit.cts.WebChromeClientTest#testOnJsBeforeUnloadIsCalled#armeabi-v7a ALL ALL ALL
 
 ## Flakey 4.4 & HiKey
 F android.bluetooth.cts.BasicAdapterTest#test_enableDisable#arm64-v8a 4.4 HiKey ALL
