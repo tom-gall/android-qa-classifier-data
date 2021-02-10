@@ -10,7 +10,7 @@
 # TESTNAME
 #
 # KERNEL_VERSIONS
-# : ( ALL | 5.4 | 4.19 | 4.14 | 4.9 | 4.4 )
+# : ( ALL | 5.10 | 5.4 | 4.19 | 4.14 | 4.9 | 4.4 )
 #
 # HARDWARE
 # : ( ALL | HiKey | HiKey960 | db845 )
@@ -19,6 +19,14 @@
 # : ( ALL | Android8 | Android9 | Android10 | Android11 | AOSP )
 
 # Expected Fails
+# All
+## the following tests fail becuase Gestures are not enabled
+E android.systemui.cts.WindowInsetsBehaviorTests#swipeInsideLimit_immersiveSticky_noEventCanceled#arm64-v8a ALL ALL ALL
+E android.systemui.cts.WindowInsetsBehaviorTests#swipeInsideLimit_systemUiVisible_noEventCanceled#arm64-v8a ALL ALL ALL
+E android.systemui.cts.WindowInsetsBehaviorTests#swipeOutsideLimit_immersiveSticky_noEventCanceled#arm64-v8a ALL ALL ALL
+E android.systemui.cts.WindowInsetsBehaviorTests#tappableElements_tapSamplePoints_excludeViewRects_withoutAnyCancel#arm64-v8a ALL ALL ALL
+E android.systemui.cts.WindowInsetsBehaviorTests#tappableElements_tapSamplePoints_notExcludeViewRects_withoutAnyCancel#arm64-v8a ALL ALL ALL
+
 # db845c
 E android.webkit.cts.WebViewTest#testPrinting#arm64-v8a ALL db845 ALL
 E libcore.java.net.ConcurrentCloseTest#test_connect ALL db845 ALL
@@ -26,9 +34,29 @@ E libcore.java.net.ConcurrentCloseTest#test_connect_nonBlocking ALL db845 ALL
 E libcore.java.net.ConcurrentCloseTest#test_connect_timeout ALL db845 ALL
 E libcore.java.net.SocketTest#testCloseDuringConnect ALL db845 ALL
 E com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL db845 ALL
+# SecureUserBuild and testBuildFingerprint will fail since we use only userdebug builds, while test expects user builds
+E android.os.cts.BuildTest#testIsSecureUserBuild#arm64-v8a ALL db845 ALL
+E android.os.cts.BuildTest#testIsSecureUserBuild#armeabi-v7a ALL db845 ALL
+E android.os.cts.BuildVersionTest#testBuildFingerprint#arm64-v8a ALL db845 ALL
+E android.os.cts.BuildVersionTest#testBuildFingerprint#armeabi-v7a ALL db845 ALL
+## Marking Bluetooth ones on DB845c as expected failures for now; will be removed once we figure what's wrong there
+E android.bluetooth.cts.BasicAdapterTest#test_enableDisable#armeabi-v7a ALL db845 ALL
+E android.bluetooth.cts.BluetoothLeScanTest#testScanFilter#arm64-v8a ALL db845 ALL
+E android.bluetooth.cts.BluetoothLeScanTest#testStartScanPendingIntent#arm64-v8a ALL db845 ALL
+E android.bluetooth.cts.BluetoothLeScanTest#testStartScanPendingIntent#armeabi-v7a ALL db845 ALL
+E android.bluetooth.cts.BluetoothLeScanTest#testStartScanPendingIntent_nullnull#armeabi-v7a ALL db845 ALL
+E android.bluetooth.cts.HearingAidProfileTest#test_getConnectionState#arm64-v8a ALL db845 ALL
+E android.bluetooth.cts.HearingAidProfileTest#test_getConnectionState#armeabi-v7a ALL db845 ALL
+E android.bluetooth.cts.HearingAidProfileTest#test_getConnectionStateChangedIntent#arm64-v8a ALL db845 ALL
+E android.bluetooth.cts.HearingAidProfileTest#test_getConnectionStateChangedIntent#armeabi-v7a ALL db845 ALL
 
 #Hikey960
 E com.android.tests.dynamic_partitions.KernelDynamicPartitionsTest#testDynamicPartitionsSysProp#arm64-v8a ALL HiKey960 ALL
+# SecureUserBuild and testBuildFingerprint will fail since we use only userdebug builds, while test expects user builds
+E android.os.cts.BuildTest#testIsSecureUserBuild#arm64-v8a ALL Hikey960 ALL
+E android.os.cts.BuildTest#testIsSecureUserBuild#armeabi-v7a ALL Hikey960 ALL
+E android.os.cts.BuildVersionTest#testBuildFingerprint#arm64-v8a ALL Hikey960 ALL
+E android.os.cts.BuildVersionTest#testBuildFingerprint#armeabi-v7a ALL Hikey960  ALL
 
 #Hikey
 E com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL HiKey ALL
@@ -47,6 +75,8 @@ F android.systemui.cts.LightBarThemeTest#testNavigationBarDividerColor#arm64-v8a
 F android.systemui.cts.LightBarThemeTest#testNavigationBarDividerColor#armeabi-v7a ALL ALL ALL
 F android.webkit.cts.WebChromeClientTest#testOnJsBeforeUnloadIsCalled#arm64-v8a ALL ALL ALL
 F android.webkit.cts.WebChromeClientTest#testOnJsBeforeUnloadIsCalled#armeabi-v7a ALL ALL ALL
+
+#Hikey
 F VtsKernelLtp#dio.dio16_32bit ALL HiKey ALL
 F VtsKernelLtp#dio.dio16_64bit ALL HiKey ALL
 F VtsKernelLtp#dio.dio17_32bit ALL HiKey ALL
